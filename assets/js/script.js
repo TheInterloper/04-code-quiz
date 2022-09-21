@@ -3,13 +3,20 @@
 var timeElement = document.querySelector("#timer")
 var startButton = document.querySelector("#startbutton")
 
+var main = document.querySelector("main")
+var pTag = document.createElement("p")
+
+
+
 var body = document.body
-
+var timeLeft = 120
 var score = 0;
-var i = 0;
+// var i = 0;
+var index = 0;
 
 
-var questions = [             //Array of questions
+//Array of questions
+var questions = [             
   {q: "Question 1",
   answerOptions: ["A", "B", "C", "D"],
     a: "A"
@@ -39,16 +46,27 @@ var questions = [             //Array of questions
 
 
 
+
+
+
+
+
+
+// var gameOver() {
+//   if timer reaches 0, alert 'game over'
+
+// }
+
+
 //Timer   WORKING, Hooray!
 
 function countdown() {
-  var timeLeft = 120;
 
   var timerInterval = setInterval(function() {
     timeLeft--;
     timeElement.textContent = timeLeft;
 
-    if(timeLeft === 0) {
+    if(timeLeft <= 0) {
       clearInterval(timerInterval);
       // display game over
     }
@@ -57,35 +75,49 @@ function countdown() {
 }
 
 
-// Selectors
-
-var answerText01 = document.createElement("button")
-var answerText02 = document.createElement("button")
-var answerText03 = document.createElement("button")
-var answerText04 = document.createElement("button")
 
 
-// Answer button options
 
-answerText01.textContent = (questions[0].answerOptions[0])
-answerText02.textContent = (questions[0].answerOptions[1])
-answerText03.textContent = (questions[0].answerOptions[2])
-answerText04.textContent = (questions[0].answerOptions[3])
-
-body.appendChild(answerText01)
-body.appendChild(answerText02)
-body.appendChild(answerText03)
-body.appendChild(answerText04)
 
 //Questions
 
 //Loop for questions -- ! not working yet !
-function questionSet() {      
-  for (var i = 0; i < questions.length; i++) {
-  questions[i]++
+function questionSet() {    
+  var currentQuestion = questions[index] 
+  console.log(currentQuestion)
+  pTag.textContent = currentQuestion.q
+  main.appendChild(pTag)
+  
+  for (var i = 0; i < currentQuestion.answerOptions.length; i++) {
+    var answerText = document.createElement("button") 
+    answerText.textContent = currentQuestion.answerOptions[i]
+    answerText.className = "button"
+    main.appendChild(answerText)  
+
   }
+
+  // event listener for correct button press
+  main.addEventListener("click", function(e) {
+
+    if(e.target.matches(".button")){
+    main.innerHTML = ""
+    correctAnswer(e, currentQuestion.a)
+    index++
+    questionSet()
+    }
+
+})
 }
 
+
+function correctAnswer(e, answer) {
+  if(e.target.textContent === answer){
+    score++
+  // if e matches correct answer then increase correct
+  // currentQuestion.a
+  //else decrease time 10s and increment incorrect
+  }
+}
 
 
 //console.log(questions[0].q) //targeting question 1
@@ -100,4 +132,5 @@ console.log(questions[1].a) // targets correct answer
 
 startButton.addEventListener("click", function() {
   countdown()
+  questionSet()
 })
