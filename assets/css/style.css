@@ -44,7 +44,7 @@ body {
 }
 
 
-.ans-box {
+.ansbox {
   text-align: center;
 }
 
@@ -54,7 +54,7 @@ body {
 
 /* IDs */
 
-#start-button {
+#startbutton {
   background-color: #20bf55;
   font-weight: bold;
   padding: 10px;
@@ -62,7 +62,7 @@ body {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-#start-button:hover {
+#startbutton:hover {
   cursor: pointer;
   box-shadow: 2px 2px 2px 1px rgba(11, 79, 108, 0.2);
 }

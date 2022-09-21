@@ -1,49 +1,64 @@
 
 //Global variables
 var timeElement = document.querySelector("#timer")
-var startButton = document.querySelector("#start-button")
+var startButton = document.querySelector("#startbutton")
 
+var body = document.body
 
 var score = 0;
 var i = 0;
 
 
 
-//Timer
+//Timer   WORKING, Hooray!
 
 function countdown() {
   var timeLeft = 120;
 
-
-  // Sets interval in variable
   var timerInterval = setInterval(function() {
     timeLeft--;
     timeElement.textContent = timeLeft;
 
     if(timeLeft === 0) {
-      // Stops execution of action at set interval
       clearInterval(timerInterval);
+      // display game over
     }
 
   }, 1000);
 }
 
-// countdown()
 
-// Selectors
+//Answer Selectors
 
 var answerText01 = document.createElement("button")
 var answerText02 = document.createElement("button")
 var answerText03 = document.createElement("button")
 var answerText04 = document.createElement("button")
 
-// main.appendChild(answerText01)
 
+//attempting to have possible answers displayed in the buttons.  ! not working !
+// answerText01.textContent = (questions[0].answerOptions[0])
+answerText02.textContent = "Working"
+answerText03.textContent = "Working"
+answerText04.textContent = "Working"
 
+body.appendChild(answerText01)
+body.appendChild(answerText02)
+body.appendChild(answerText03)
+body.appendChild(answerText04)
 
 //Questions
 
-var questions = [
+//Loop for questions -- ! not working yet !
+function questionSet() {      
+  for (var i = 0; i < questions.length; i++) {
+  questions[i]++
+  }
+}
+
+
+
+var questions = [       //Array of questions
   {q: "Question 1",
   answerOptions: ["A", "B", "C", "D"],
     a: "A"
@@ -51,17 +66,17 @@ var questions = [
 
   {q: "Question 2",
   answerOptions: ["A", "B", "C", "D"],
-    a: "B"
+    a: "C"
   },
 
   {q: "Question 3",
   answerOptions: ["A", "B", "C", "D"],
-    a: "C"
+    a: "A"
   },
 
   {q: "Question 4",
   answerOptions: ["A", "B", "C", "D"],
-    a: "A"
+    a: "B"
   },
 
   {q: "Question 5",
