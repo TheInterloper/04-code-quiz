@@ -1,0 +1,67 @@
+* {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #757575;
+  padding: 70px;
+}
+
+
+
+
+
+
+
+
+/* Classes */
+
+.scoreboard {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+
+}
+
+
+.title {
+  text-align: center;
+  padding: 15px;
+
+}
+
+.highscores {
+  text-align: left;
+}
+
+.start {
+  text-align: center;
+  padding: 100px;
+}
+
+
+.ans-box {
+  text-align: center;
+}
+
+
+
+
+
+/* IDs */
+
+#start-button {
+  background-color: #20bf55;
+  font-weight: bold;
+  padding: 10px;
+  margin: 50px;
+  box-shadow: 5px, 10px, black;
+  
+}
+
+
+#timer {
+
+  
+}

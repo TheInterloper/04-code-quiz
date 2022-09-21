@@ -5,13 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Document</title>
+    <title>JavaScript Quiz</title>
   </head>
 
   <body>
     <main>
+      <section class="scoreboard">
+        <div id="correct"># Correct</div>
+        <div id="incorrect"># Incorrect</div>
+        <div id="timer"><span>Time Remaining</span></div>
+        <!-- Answers correct, Answers Incorrect, Timer here -->
+      </section>
+
       <header>
-        <h1>JavaScript Code Quiz!</h1>
+        <h1 class="title">JavaScript Code Quiz!</h1>
       </header>
 
       <section class="highscores">
@@ -30,17 +37,10 @@
 
       <section class="ans-box">
         <!-- Possible answers go here -->
-        <button>answer 1</button>
-        <button>answer 2</button>
-        <button>answer 3</button>
-        <button>answer 4</button>
-      </section>
-
-      <section class="scoreboard">
-        <div># Correct</div>
-        <div># Incorrect</div>
-        <div id="timer"><span>Time Remaining</span></div>
-        <!-- Answers correct, Answers Incorrect, Timer here -->
+        <button id="button1">answer 1</button>
+        <button id="button2">answer 2</button>
+        <button id="button3">answer 3</button>
+        <button id="button4">answer 4</button>
       </section>
     </main>
     <script src="./assets/js/script.js"></script>
