@@ -5,7 +5,7 @@
 
 body {
   background-color: #757575;
-  padding: 70px;
+  padding: 40px;
 }
 
 
@@ -32,12 +32,15 @@ body {
 }
 
 .highscores {
-  text-align: left;
+  display: flex;
+  flex-direction: row-reverse;
+  height: auto;
 }
 
 .start {
   text-align: center;
   padding: 100px;
+  
 }
 
 
@@ -56,8 +59,12 @@ body {
   font-weight: bold;
   padding: 10px;
   margin: 50px;
-  box-shadow: 5px, 10px, black;
-  
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#start-button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 1px rgba(11, 79, 108, 0.2);
 }
 
 
@@ -65,3 +72,9 @@ body {
 
   
 }
+
+#scores {
+  max-width:250px;
+  font-weight: bold;
+  text-align: left;
+  }
