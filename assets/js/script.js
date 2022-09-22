@@ -13,7 +13,7 @@ var pTag = document.createElement("p")
 
 
 
-var timeLeft = 3
+var timeLeft = 10
 var score = 0;
 var score2 =0;
 // var i = 0;
