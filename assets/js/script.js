@@ -11,13 +11,16 @@ var header = document.querySelector("header")
 var main = document.querySelector("main")
 var pTag = document.createElement("p")
 
+// var initials = localStorage.setItem()
+// var highScore = localStorage.setItem()
 
+// var scores = []
 
 var timeLeft = 90;
 var score = 0;
-var score2 =0;
-// var i = 0;
+var score2 = 0;
 var index = 0;
+
 
 
 //Array of questions
@@ -32,26 +35,26 @@ var questions = [
     a: "[ ]"
   },
 
-  {q: "Question 3",
-  answerOptions: ["A", "B", "C", "D"],
-    a: "A"
+  {q: "How many primitive data types are there in JavaScript?",
+  answerOptions: ["5", "7", "10", "11"],
+    a: "5"
   },
 
-  {q: "Question 4",
-  answerOptions: ["A", "B", "C", "D"],
-    a: "B"
+  {q: "The data type for TRUE and FALSE is known as ______ ?",
+  answerOptions: ["Operators", "Booleans", "Strings", "Undefined"],
+    a: "Booleans"
   },
 
-  {q: "Question 5",
-  answerOptions: ["A", "B", "C", "D"],
-    a: "D"
+  {q: "Coding this assignment has caused me ______ ?",
+  answerOptions: ["Headaches", "Frustration", "Sadness", "All of the Above!"],
+    a: "All of the Above!"
   }
 ]
 
 
 
 
-//Timer   It is working, and there was much rejoicing!
+//Timer -- It is working, and there was much rejoicing!
 
 function countdown() {
 
@@ -61,26 +64,22 @@ function countdown() {
 
     if(timeLeft <= 0) {
       clearInterval(timerInterval);
-      gameOver()
     }
 
   }, 1000);
 }
 
-// function enterScore (){
-//   initials = prompt("Enter Initials")
+
+
+
+
+
+
+// function gameOver() {
+//   prompt("Enter your Initials")
+//   prompt("Enter your score")
+
 // }
-
-
-function gameOver() {
-  timesUp.textContent = "Times up!"
-  header.appendChild(timesUp);
-  main.innerHTML= "";
-  // enterScore()
-
-  }
-
-
 
 
 
@@ -91,9 +90,10 @@ function gameOver() {
 //Loop for questions -- It is working, and there was much rejoicing!
 function questionSet() {    
   var currentQuestion = questions[index];
-  console.log(currentQuestion);
   pTag.textContent = currentQuestion.q;
   main.appendChild(pTag);
+
+  
   
   for (var i = 0; i < currentQuestion.answerOptions.length; i++) {
     var answerText = document.createElement("button")
@@ -104,6 +104,7 @@ function questionSet() {
       correctAnswer(e, currentQuestion.a);
       index++;
       questionSet();
+
     })
     main.appendChild(answerText)
   }
@@ -113,16 +114,19 @@ function questionSet() {
 function correctAnswer(e, answer) {
   if(e.target.textContent === answer){
     // if e matches correct answer then increase correct
-    score++
+    score++;
     correct.textContent = "# Correct: " + score;
   // currentQuestion.a
   //else decrease time 10s and increment incorrect
   } else{
     timeLeft -= 10;
-    score2++
+    score2++;
     incorrect.textContent = "# Incorrect: " + score2;
   }
-}
+
+
+
+};
 
 
 

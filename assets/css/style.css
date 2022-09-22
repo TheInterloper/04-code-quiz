@@ -11,12 +11,18 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
 }
 
+p {
+  padding: 20px;
+  font-size: 35px;
 
+}
 
 
 
@@ -45,7 +51,8 @@ main {
   height: auto;
 }
 
-.start {
+#start {
+  font-size: 100px;
   text-align: center;
   padding: 100px;
   
@@ -56,7 +63,13 @@ main {
   text-align: center;
 }
 
-
+.button {
+  width: max-content;
+  height: fit-content;
+  font-size: large;
+  font-weight: bolder;
+  margin: 12px;
+}
 
 
 
@@ -64,15 +77,16 @@ main {
 
 #startbutton {
   background-color: #20bf55;
+  font-size: 25px;
   font-weight: bold;
   padding: 10px;
   margin: 50px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 #startbutton:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 2px 1px rgba(11, 79, 108, 0.2);
+  box-shadow: 2px 2px 2px 1px rgba(11, 79, 108, 0.3);
 }
 
 
