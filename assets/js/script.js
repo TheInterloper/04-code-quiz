@@ -2,24 +2,29 @@
 //Global variables
 var timeElement = document.querySelector("#timer")
 var startButton = document.querySelector("#startbutton")
+var correct = document.querySelector("#correct")
+var incorrect = document.querySelector("#incorrect")
+var timesUp = document.querySelector("#timesup")
+var header = document.querySelector("header")
+
 
 var main = document.querySelector("main")
 var pTag = document.createElement("p")
 
 
 
-var body = document.body
-var timeLeft = 120
+var timeLeft = 3
 var score = 0;
+var score2 =0;
 // var i = 0;
 var index = 0;
 
 
 //Array of questions
 var questions = [             
-  {q: "Question 1",
-  answerOptions: ["A", "B", "C", "D"],
-    a: "A"
+  {q: "What year was JavaScript invented?",
+  answerOptions: ["1995", "1999", "1990", "2000"],
+    a: "1995"
   },
 
   {q: "Question 2",
@@ -46,33 +51,35 @@ var questions = [
 
 
 
-
-
-
-
-
-
-// var gameOver() {
-//   if timer reaches 0, alert 'game over'
-
-// }
-
-
-//Timer   WORKING, Hooray!
+//Timer   It is working, and there was much rejoicing!
 
 function countdown() {
 
   var timerInterval = setInterval(function() {
     timeLeft--;
-    timeElement.textContent = timeLeft;
+    timeElement.textContent = "Time Remaining " + timeLeft;
 
     if(timeLeft <= 0) {
       clearInterval(timerInterval);
-      // display game over
+      gameOver()
     }
 
   }, 1000);
 }
+
+// function enterScore (){
+//   initials = prompt("Enter Initials")
+// }
+
+
+function gameOver() {
+  timesUp.textContent = "Times up!"
+  header.appendChild(timesUp);
+  main.innerHTML= "";
+  // enterScore()
+
+  }
+
 
 
 
@@ -83,54 +90,53 @@ function countdown() {
 
 //Loop for questions -- ! not working yet !
 function questionSet() {    
-  var currentQuestion = questions[index] 
-  console.log(currentQuestion)
-  pTag.textContent = currentQuestion.q
-  main.appendChild(pTag)
+  var currentQuestion = questions[index];
+  console.log(currentQuestion);
+  pTag.textContent = currentQuestion.q;
+  main.appendChild(pTag);
   
   for (var i = 0; i < currentQuestion.answerOptions.length; i++) {
-    var answerText = document.createElement("button") 
+    var answerText = document.createElement("button")
     answerText.textContent = currentQuestion.answerOptions[i]
     answerText.className = "button"
-    main.appendChild(answerText)  
-
-  }
+    main.appendChild(answerText)
+    }
 
   // event listener for correct button press
   main.addEventListener("click", function(e) {
 
     if(e.target.matches(".button")){
-    main.innerHTML = ""
-    correctAnswer(e, currentQuestion.a)
-    index++
-    questionSet()
+    main.innerHTML = "";
+    correctAnswer(e, currentQuestion.a);
+    index++;
+    questionSet();
     }
+    
 
 })
-}
+};
 
 
 function correctAnswer(e, answer) {
   if(e.target.textContent === answer){
+    // if e matches correct answer then increase correct
     score++
-  // if e matches correct answer then increase correct
+    correct.textContent = "# Correct: " + score;
   // currentQuestion.a
   //else decrease time 10s and increment incorrect
-  }
+  } else
+    timeLeft -= 10;
+    score2++
+    incorrect.textContent = "# Incorrect " + score2
 }
 
 
-//console.log(questions[0].q) //targeting question 1
-//console.log(questions[1].q) //targeting question 2
-
-//console.log(questions[0].a) // targets correct answer 
-console.log(questions[1].a) // targets correct answer
 
 
-
-// Event listener button
+// Start Event listener button
 
 startButton.addEventListener("click", function() {
+  main.innerHTML = ""
   countdown()
   questionSet()
 })

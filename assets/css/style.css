@@ -4,6 +4,8 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-color: #757575;
   padding: 40px;
 }
@@ -11,6 +13,7 @@ body {
 main {
   align-items: center;
   justify-content: center;
+  align-content: center;
 }
 
 
