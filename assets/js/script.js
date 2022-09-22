@@ -13,7 +13,7 @@ var pTag = document.createElement("p")
 
 
 
-var timeLeft = 30;
+var timeLeft = 90;
 var score = 0;
 var score2 =0;
 // var i = 0;
@@ -27,9 +27,9 @@ var questions = [
     a: "1995"
   },
 
-  {q: "Question 2",
-  answerOptions: ["A", "B", "C", "D"],
-    a: "C"
+  {q: "Which pair of characters is used to designate an array?",
+  answerOptions: ["( )", "{ }", "[ ]", "< >"],
+    a: "[ ]"
   },
 
   {q: "Question 3",
@@ -88,7 +88,7 @@ function gameOver() {
 
 //Questions
 
-//Loop for questions -- ! not working yet !
+//Loop for questions -- It is working, and there was much rejoicing!
 function questionSet() {    
   var currentQuestion = questions[index];
   console.log(currentQuestion);
@@ -100,15 +100,13 @@ function questionSet() {
     answerText.textContent = currentQuestion.answerOptions[i]
     answerText.className = "button"
     answerText.addEventListener("click", function(e){
-    main.innerHTML = "";
-    correctAnswer(e, currentQuestion.a);
-    index++;
-    questionSet();
+      main.innerHTML = "";
+      correctAnswer(e, currentQuestion.a);
+      index++;
+      questionSet();
     })
     main.appendChild(answerText)
-    }
-
-
+  }
 };
 
 
@@ -119,10 +117,11 @@ function correctAnswer(e, answer) {
     correct.textContent = "# Correct: " + score;
   // currentQuestion.a
   //else decrease time 10s and increment incorrect
-  } else
+  } else{
     timeLeft -= 10;
     score2++
     incorrect.textContent = "# Incorrect: " + score2;
+  }
 }
 
 
