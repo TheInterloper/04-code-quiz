@@ -13,7 +13,7 @@ var pTag = document.createElement("p")
 
 
 
-var timeLeft = 10
+var timeLeft = 30;
 var score = 0;
 var score2 =0;
 // var i = 0;
@@ -99,21 +99,16 @@ function questionSet() {
     var answerText = document.createElement("button")
     answerText.textContent = currentQuestion.answerOptions[i]
     answerText.className = "button"
-    main.appendChild(answerText)
-    }
-
-  // event listener for correct button press
-  main.addEventListener("click", function(e) {
-
-    if(e.target.matches(".button")){
+    answerText.addEventListener("click", function(e){
     main.innerHTML = "";
     correctAnswer(e, currentQuestion.a);
     index++;
     questionSet();
+    })
+    main.appendChild(answerText)
     }
-    
 
-})
+
 };
 
 
@@ -127,7 +122,7 @@ function correctAnswer(e, answer) {
   } else
     timeLeft -= 10;
     score2++
-    incorrect.textContent = "# Incorrect " + score2
+    incorrect.textContent = "# Incorrect: " + score2;
 }
 
 
