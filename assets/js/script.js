@@ -113,6 +113,7 @@ function questionSet() {
     clearInterval(timerInterval)
     highScore()
     showScore() 
+    resetButton()
   }
   
 };
