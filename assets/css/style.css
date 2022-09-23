@@ -58,7 +58,7 @@ header {
   border-radius: 6px;
   border: 2px solid #1D6600;
   text-align: center;
-  padding: 15px;
+  padding: 15px 25px;
   box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -77,13 +77,28 @@ header {
 }
 
 .button {
-  width: max-content;
-  height: fit-content;
-  font-size: large;
-  font-weight: bolder;
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px;
+  background: #5400A3;
+  border: solid #350066 2px;
+  box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.3);
   margin: 12px;
 }
 
+
+.button:hover {
+  background: #9C33FF;
+  cursor: pointer;
+}
+
+.button:active {
+  transform: scale(.97);
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
 
 
 
@@ -94,7 +109,7 @@ header {
 #startbutton {
   border-radius: 4px;
   
-  background-color: #B0FF92;
+  background-color: #50FF0A;
   font-size: 25px;
   font-weight: bold;
   padding: 10px;
@@ -104,7 +119,11 @@ header {
 
 #startbutton:hover {
   cursor: pointer;
-  box-shadow: 3px 3px 8px 0px rgba(251, 251, 255, 0.3);
+}
+
+#startbutton:active {
+  transform: scale(.97);
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 

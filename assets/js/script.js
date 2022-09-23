@@ -69,12 +69,22 @@ function countdown() {
     if(timeLeft <= 0) {
       clearInterval(timerInterval);
       main.innerHTML = "Times up!"
+      resetButton()
     }
 
   }, 1000);
 }
 
-
+// Button to refresh page
+function resetButton(){
+  var reset = document.createElement("button")
+  reset.textContent = "Play Again"
+  reset.className = "button"
+  reset.addEventListener("click", function(){
+    location.reload();
+  })
+  main.appendChild(reset)
+}
 
 //Loop for questions -- It is working, and there was MORE rejoicing!
 function questionSet() {    
