@@ -6,32 +6,45 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: #757575;
+  background-color: #FFF2F1;
   padding: 40px;
+  min-width: 800px;
 }
 
 main {
+  border: 2px solid #171452;
+  border-radius: 10px;
+  font-size: 22px;
+  color: black;
+  background-color: #A09BE7;
+  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   align-content: center;
+  justify-content: center;
 }
 
 p {
-  padding: 20px;
-  font-size: 35px;
-
+  padding: 15px;
+  font-size: 22px;
+  font-weight:600;
 }
 
-
-
-
+header {
+  display: flex;
+  justify-content: center;
+}
 
 
 /* Classes */
 
+
 .scoreboard {
+  font-size: 18px;
+  font-weight: 500;
+  color: #171452;
+  background-color: #FFF2F1;
   display: flex;
   flex-direction: row;
   gap: 25px;
@@ -40,9 +53,13 @@ p {
 
 
 .title {
+  color: #171452;
+  background-color: #D6FF79;
+  border-radius: 6px;
+  border: 2px solid #1D6600;
   text-align: center;
   padding: 15px;
-
+  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
 .highscores {
@@ -51,12 +68,8 @@ p {
   height: auto;
 }
 
-#start {
-  font-size: 100px;
-  text-align: center;
-  padding: 100px;
-  
-}
+
+
 
 
 .ansbox {
@@ -73,20 +86,34 @@ p {
 
 
 
+
 /* IDs */
 
+
+
 #startbutton {
-  background-color: #20bf55;
+  border-radius: 4px;
+  
+  background-color: #B0FF92;
   font-size: 25px;
   font-weight: bold;
   padding: 10px;
   margin: 50px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 #startbutton:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 2px 1px rgba(11, 79, 108, 0.3);
+  box-shadow: 3px 3px 8px 0px rgba(251, 251, 255, 0.3);
+}
+
+
+#instruct {
+  color: #171452;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 18px;
+  
 }
 
 
@@ -96,18 +123,25 @@ p {
 }
 
 #scores {
+  color:#171452;
   align-items: right;
-  max-width:250px;
   font-weight: bold;
   text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #submit-initials {
-
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
-#finish {
+#submit-initials:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 8px 0px rgba(11, 79, 108, 0.3);
+}
 
+#initials {
+  
 
 }
 

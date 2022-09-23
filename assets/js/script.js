@@ -68,6 +68,7 @@ function countdown() {
 
     if(timeLeft <= 0) {
       clearInterval(timerInterval);
+      main.innerHTML = "Times up!"
     }
 
   }, 1000);
@@ -130,6 +131,7 @@ function highScore(){
     scores.push( {initials:initials.value, score:score} ) 
     localStorage.setItem("highscores", JSON.stringify(scores))
     showScore()
+    submit.style.display = "none"
   })
 
 };
