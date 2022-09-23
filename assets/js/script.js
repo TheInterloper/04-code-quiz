@@ -11,12 +11,16 @@ var header = document.querySelector("header")
 var main = document.querySelector("main")
 var pTag = document.createElement("p")
 
-// var initials = localStorage.setItem()
-// var highScore = localStorage.setItem()
 
-// var scores = []
+var scores = JSON.parse(localStorage.getItem("highscores")) || []
+  // array with objects(initials and score)
+  //or
+  // empty array
 
-var timeLeft = 90;
+var timerInterval
+
+
+var timeLeft = 30;
 var score = 0;
 var score2 = 0;
 var index = 0;
@@ -58,7 +62,7 @@ var questions = [
 
 function countdown() {
 
-  var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
     timeLeft--;
     timeElement.textContent = "Time Remaining " + timeLeft;
 
@@ -71,43 +75,35 @@ function countdown() {
 
 
 
-
-
-
-
-// function gameOver() {
-//   prompt("Enter your Initials")
-//   prompt("Enter your score")
-
-// }
-
-
-
-
-
-//Questions
-
-//Loop for questions -- It is working, and there was much rejoicing!
+//Loop for questions -- It is working, and there was MORE rejoicing!
 function questionSet() {    
   var currentQuestion = questions[index];
-  pTag.textContent = currentQuestion.q;
-  main.appendChild(pTag);
-
   
+  if(currentQuestion){
+    pTag.textContent = currentQuestion.q;
+    main.appendChild(pTag);
+    
   
-  for (var i = 0; i < currentQuestion.answerOptions.length; i++) {
-    var answerText = document.createElement("button")
-    answerText.textContent = currentQuestion.answerOptions[i]
-    answerText.className = "button"
-    answerText.addEventListener("click", function(e){
-      main.innerHTML = "";
-      correctAnswer(e, currentQuestion.a);
-      index++;
-      questionSet();
+    for (var i = 0; i < currentQuestion.answerOptions.length; i++) {
+      var answerText = document.createElement("button")
+      answerText.textContent = currentQuestion.answerOptions[i]
+      answerText.className = "button"
+      answerText.addEventListener("click", function(e){
+        main.innerHTML = "";
+        correctAnswer(e, currentQuestion.a);
+        index++;
+        questionSet();
+        
 
-    })
-    main.appendChild(answerText)
+      })
+      main.appendChild(answerText)
+    }
+  } else {
+    clearInterval(timerInterval)
+    highScore()
+    showScore() 
   }
+  
 };
 
 
@@ -116,7 +112,6 @@ function correctAnswer(e, answer) {
     // if e matches correct answer then increase correct
     score++;
     correct.textContent = "# Correct: " + score;
-  // currentQuestion.a
   //else decrease time 10s and increment incorrect
   } else{
     timeLeft -= 10;
@@ -124,10 +119,39 @@ function correctAnswer(e, answer) {
     incorrect.textContent = "# Incorrect: " + score2;
   }
 
+};
 
+function highScore(){
+  var submit = document.querySelector("#submit-initials")
+  var initials = document.querySelector("#initials");
+  
+  submit.addEventListener('click', function() {
+    // console.log(initials.value)
+    scores.push( {initials:initials.value, score:score} ) 
+    localStorage.setItem("highscores", JSON.stringify(scores))
+    showScore()
+  })
 
 };
 
+function showScore(){
+  var scoreList = document.querySelector("#score-list")
+  removeChildren(scoreList)
+  for(var i = 0; i < scores.length; i++){
+    //create li tag
+    var scoreEl = document.createElement("li")
+    // apply text to the li tag
+    scoreEl.textContent= String(`${scores[i].initials}:${scores[i].score}`)
+    //inserting li tag to the ul tag
+    scoreList.appendChild(scoreEl)
+  }
+};
+
+function removeChildren(element){
+  while(element.firstChild){
+    element.removeChild(element.firstChild)
+  } 
+};
 
 
 

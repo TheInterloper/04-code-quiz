@@ -96,7 +96,19 @@ p {
 }
 
 #scores {
+  align-items: right;
   max-width:250px;
   font-weight: bold;
   text-align: left;
-  }
+}
+
+#submit-initials {
+
+}
+
+#finish {
+
+
+}
+
+  
