@@ -14,7 +14,7 @@ body {
 main {
   border: 2px solid #171452;
   border-radius: 10px;
-  font-size: 22px;
+  font-size: 24px;
   color: black;
   background-color: #A09BE7;
   box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
@@ -62,36 +62,23 @@ header {
   box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
-.highscores {
-  display: flex;
-  flex-direction: row-reverse;
-  height: auto;
-}
-
-
-
-
-
-.ansbox {
-  text-align: center;
-}
-
 .button {
   -webkit-border-radius: 4;
   -moz-border-radius: 4;
   border-radius: 4px;
-  color: #ffffff;
+  color: black;
   font-size: 20px;
+  font-weight: 700;
   padding: 10px;
-  background: #5400A3;
-  border: solid #350066 2px;
+  background: #CFCFCF;
+  border: solid #48483A 2px;
   box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.3);
   margin: 12px;
 }
 
 
 .button:hover {
-  background: #9C33FF;
+  background: #B4AFA7;
   cursor: pointer;
 }
 
