@@ -20,7 +20,7 @@ var scores = JSON.parse(localStorage.getItem("highscores")) || []
 var timerInterval
 
 
-var timeLeft = 30;
+var timeLeft = 60;
 var score = 0;
 var score2 = 0;
 var index = 0;
